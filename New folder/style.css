@@ -1,0 +1,59 @@
+*,body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container {
+    position: absolute;
+    top: 50%;
+    left:50%;
+    transform:  translate(-50%,-50%);
+}
+.stat {
+    stroke:  #ccc;
+    stroke-width:14;
+    fill: transparent;
+}
+.load {
+    fill:  url(#Gradient);
+    stroke: url(#Gradient);
+    fill-opacity: 0;
+    stroke-width: 14;
+    stroke-dasharray:628;
+    stroke-linecap: round;
+    transition: fill-opacity 0.5s linear;
+    animation: load 20s linear;
+}
+.num {
+    font-size: 60px;
+    fill: url(#Gradient);
+    font-family: poppins;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+@keyframes load  {
+    0% {
+        stroke-dashoffset: 638;
+    }
+
+    20% {
+        stroke-dashoffset: 502.4;
+    }
+     
+    40% {
+        stroke-dashoffset: 376.8;
+    }
+
+    60% {
+        stroke-dashoffset: 251.2;
+    }
+
+    80% {
+        stroke-dashoffset: 125.6;
+    }
+
+    100% {
+        stroke-dashoffset:0;
+    }
+}

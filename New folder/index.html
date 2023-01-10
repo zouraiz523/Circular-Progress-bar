@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animated Circular Progress bar with Number Count</title>
+    <!-- Stylesheet -->
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <svg width="300" height="300" viewBox="0 0 300 300">
+            <defs>
+                <linearGradient id="Gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#e100ff" />
+                    <stop offset="100%" stop-color="#009fff" />
+                 </linearGradient> 
+            </defs>
+
+            <circle class="stat" cx="150" cy="150" r="100"/>
+            <circle class="load" cx="150" cy="150" r="100" transform="
+            rotate(-90 150 150)" />
+        <text class="num" stroke-width="3" x="150" y="55%" text-anchor="middle"></text>
+        </svg> 
+    </div>
+    <script>
+    (function() {
+  let text = document.querySelector(".num");
+  let load = document.querySelector(".load");
+
+  let numToText = 1;
+
+  let time = setInterval(function() {
+    numToText += 1;
+    text.textContent = numToText + "%";
+
+    if (numToText === 100) {
+      clearInterval(time);
+      load.style.fillOpacity = 1;
+      text.style.fill = "#ffffff";
+      text.style.fontSize = "30px";
+      text.textContent = "Uploaded";
+      text.style.width = "105px";
+    }
+  }, 200);
+})();
+
+
+
+    </script>
+</body>
+</html>
